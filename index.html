@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Research AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark"><span class="brand-pulse"></span></div>
+      <div class="brand-text">
+        <span class="brand-title">Financial Research</span>
+        <span class="brand-subtitle">AI Agent</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item is-active" data-view="chat">
+        <span class="nav-icon">&#9679;</span> Chat
+      </button>
+      <button class="nav-item" data-view="workflow">
+        <span class="nav-icon">&#10227;</span> Workflow
+      </button>
+      <button class="nav-item" data-view="sources">
+        <span class="nav-icon">&#9670;</span> Sources
+      </button>
+      <button class="nav-item is-disabled" data-view="settings" disabled>
+        <span class="nav-icon">&#9881;</span> Settings
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="status-pill" id="connectionStatus">
+        <span class="status-dot"></span>
+        <span class="status-label">Connecting&hellip;</span>
+      </div>
+    </div>
+  </aside>
+
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <main class="main-area">
+
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="viewTitle">Chat</h1>
+        <p id="viewSubtitle">Ask about live market data or timeless investing principles</p>
+      </div>
+      <div class="topbar-meta">
+        <span class="model-pill" id="modelPill">LLM: &mdash;</span>
+      </div>
+    </header>
+
+    <section class="view is-active" id="view-chat">
+      <div class="chat-window" id="chatWindow">
+        <div class="chat-empty" id="chatEmpty">
+          <div class="empty-glyph"></div>
+          <h2>What do you want to research?</h2>
+          <p>Try &ldquo;What is AAPL's current price and overview?&rdquo; or &ldquo;What does Graham mean by margin of safety?&rdquo;</p>
+        </div>
+      </div>
+
+      <div class="composer">
+        <textarea id="promptInput" class="composer-input" placeholder="Ask the agent&hellip;" rows="1"></textarea>
+        <div class="composer-actions">
+          <button class="btn btn-ghost" id="clearChatBtn">Clear chat</button>
+          <button class="btn btn-primary" id="sendBtn">
+            <span class="btn-label">Send</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-workflow">
+      <div class="workflow-grid">
+        <div class="panel timeline-panel">
+          <h2 class="panel-title">Execution timeline</h2>
+          <ol class="timeline" id="timelineList">
+            <li class="timeline-placeholder">Run a query to see the live pipeline.</li>
+          </ol>
+        </div>
+        <div class="panel tools-panel">
+          <h2 class="panel-title">Tool executions</h2>
+          <div class="tool-cards" id="toolCards">
+            <p class="panel-placeholder">No tools called yet.</p>
+          </div>
+          <h2 class="panel-title panel-title-spaced">RAG retrieval</h2>
+          <div class="rag-cards" id="ragCards">
+            <p class="panel-placeholder">No retrieval performed yet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-sources">
+      <div class="panel">
+        <h2 class="panel-title">Sources used this session</h2>
+        <div class="source-pill-row" id="sourcesList">
+          <p class="panel-placeholder">No sources yet &mdash; ask a question first.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/api.js"></script>
+<script src="js/render.js"></script>
+<script src="js/workflow.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/chat.js"></script>
+</body>
+</html>
